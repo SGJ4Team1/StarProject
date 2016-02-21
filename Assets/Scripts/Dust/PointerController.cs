@@ -17,13 +17,21 @@ public class PointerController : MonoBehaviour
         //タップされているか判断
 	    if(Input.GetMouseButtonDown(0))
         {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            Vector3 point = Input.mousePosition;
+            point.z = 10;
+
+            Ray ray = Camera.main.ScreenPointToRay(point);
+
             RaycastHit2D hitInfo = Physics2D.Raycast(ray.origin, ray.direction);
 
             //ゴミをタップしたか
             if(hitInfo.collider != null && hitInfo.collider.tag == "Dust")
             {
                 tapObject = hitInfo.collider.gameObject;
+            }
+            else
+            {
+                tapObject = null;
             }
         }
         else if(Input.GetMouseButtonUp(0))

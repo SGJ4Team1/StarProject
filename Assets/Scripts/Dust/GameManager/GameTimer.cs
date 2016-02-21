@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 
+[RequireComponent(typeof(GameManager))]
 public class GameTimer : MonoBehaviour, GameClearHandlar
 {
     [SerializeField]
