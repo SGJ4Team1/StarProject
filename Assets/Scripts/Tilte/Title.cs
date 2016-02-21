@@ -3,80 +3,74 @@ using System.Collections;
 
 public class Title : MonoBehaviour {
 
-// public :
-    public Sprite introBG;
-
-// private const
-	private const int WINDOW_X = 720;
-	private const int WINDOW_Y = 1280;
-
-// private :
-    private enum ePhase
+// private const :
+	
+    private bool[] changeTable =
     {
-        ePhase_Wait  = 0,
-        ePhase_Paging   ,
+        true,
+		true,
+		false,
+		false,
+		true,
+		true,
+		true,
+		false,
+        true,
+		false,
+		false,
     };
-    private ePhase _phase;
-	private int _page = 0;
-    private bool _is_android = true;
+    private GameObject caption;
+	
+// private :
+	private int _step = 0;
 
 	// Use this for initialization
 	void Start () 
 	{
-        SetBehavior();
-		
+		Debug.Log( "Title Part Start" );
+		caption = (GameObject)Resources.Load ("Title/Caption");
     }
 	
 	// Update is called once per frame
-	void Update () {
-
-		if ((_is_android && Input.touchCount > 0)
-             || (!_is_android && Input.GetMouseButtonDown(0)) )
-        {
-			SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
-			renderer.sprite = introBG;
-		}
-	}
-
-    void SetBehavior()
-    {
-        if(false == Application.isMobilePlatform )
-        {
-            _is_android = false;
-        }
-    }
-
-	private class ScrollAnimation
+	void Update () 
 	{
-		// private const 
-		private const int START_X = -1 * WINDOW_X;
-		private const int END_X = 0;
-		private const float v_x = 10.0f;
-		
-		// publicでいいか
-		public float current_x = START_X;
-
-		// public :
-		public void InitAniation( ref GameObject obj )
+		if( Input.GetMouseButtonDown(0) )
 		{
-			current_x = START_X;
-			obj.transform.Translate( current_x, obj.transform.position.y, 0.0f );
-		}
+			if( changeTable.Length <= _step ) return;
 
-		public void UpdateAnimation( ref GameObject obj )
-		{
-			current_x += v_x;
-			if( END_X < current_x )
+			switch( _step )
 			{
-				current_x = END_X;
-			}	
-
-			obj.transform.Translate( current_x, obj.transform.position.y, 0.0f );
-		}
-
-		public bool AnimationFinished()
-		{
-			return ( END_X <= current_x );
+			case 0:
+				{ 
+					// タイトル画面からあらすじ
+					TitlePartAnimation script = GetComponent<TitlePartAnimation>();
+					script.ChangeRequest();
+					caption = Instantiate( caption );
+				}
+				break;
+            case 10:
+                {
+                    // Scene Change
+                    Debug.Log("Title Part Finish");
+                }
+                break;
+			default:
+				{
+                    Debug.Log("Title Part Update");
+					if( caption )
+					{
+						TitlePartAnimation script = caption.GetComponent<TitlePartAnimation>();
+						script.ChangeRequest();
+					}
+					if (changeTable[_step])
+					{
+						TitlePartAnimation script = GetComponent<TitlePartAnimation>();
+						script.ChangeRequest();
+					}
+				}
+				break;
+			}
+            _step++;
 		}
 	}
 }
