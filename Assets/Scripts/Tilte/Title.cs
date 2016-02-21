@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Title : MonoBehaviour {
+
+    public GameObject caption;
+    public GameObject logo;
+    public GameObject button;
 
 // private const :
 	
@@ -13,13 +18,13 @@ public class Title : MonoBehaviour {
 		false,
 		true,
 		true,
-		true,
 		false,
+        true,
         true,
 		false,
 		false,
     };
-    private GameObject caption;
+    
 	
 // private :
 	private int _step = 0;
@@ -28,7 +33,9 @@ public class Title : MonoBehaviour {
 	void Start () 
 	{
 		Debug.Log( "Title Part Start" );
-		caption = (GameObject)Resources.Load ("Title/Caption");
+        // タイトル画面用instance生成
+		logo = Instantiate(logo);
+        button = Instantiate(button);
     }
 	
 	// Update is called once per frame
@@ -45,13 +52,28 @@ public class Title : MonoBehaviour {
 					// タイトル画面からあらすじ
 					TitlePartAnimation script = GetComponent<TitlePartAnimation>();
 					script.ChangeRequest();
+                    // caption生成
 					caption = Instantiate( caption );
+                    // タイトル画面素材破棄
+                    Destroy(logo);
+                    Destroy(button);
 				}
 				break;
             case 10:
                 {
                     // Scene Change
                     Debug.Log("Title Part Finish");
+                    // caption破棄
+                    Destroy(caption);
+                    // 音停止
+                    GameObject obj = GameObject.Find("Sound");
+                    if (obj)
+                    {
+                        TitleSoundManager soundMgr = obj.GetComponent<TitleSoundManager>();
+                        soundMgr.StopAll();
+                    }
+                    // GameMainへ飛ぶ
+                    SceneManager.LoadScene("GameMain");
                 }
                 break;
 			default:
@@ -66,6 +88,14 @@ public class Title : MonoBehaviour {
 					{
 						TitlePartAnimation script = GetComponent<TitlePartAnimation>();
 						script.ChangeRequest();
+
+                        // ほんとはシングルトンすべきだろうけど…
+                        GameObject obj = GameObject.Find("Sound");
+                        if (obj)
+                        {
+                            TitleSoundManager soundMgr = obj.GetComponent<TitleSoundManager>();
+                            soundMgr.PlaySe(0, 0.9f);
+                        }
 					}
 				}
 				break;
