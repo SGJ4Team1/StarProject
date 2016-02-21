@@ -23,8 +23,4 @@ public class HumanController : csvlord
         }
 
     }
-	
-	void Update () {
-	
-	}
 }
