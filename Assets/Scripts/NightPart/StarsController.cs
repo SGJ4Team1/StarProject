@@ -15,16 +15,18 @@ public class StarsController : csvlord
             {
                 if (child.name == "Star (" + i + ")")
                 {
-                    child.GetComponent<Image>().color = new Color(225, 225, 225, 225);
+                    if (i == status[0])
+                    {
+                        child.GetComponent<Animator>().enabled = true;
+                    }
+                    else
+                    {
+                        child.GetComponent<Image>().color = new Color(255, 255, 255, 255);
+                    }
                 }
             }
             count++;
         }
       
-	}
-
-	void Update () 
-    {
-        
 	}
 }
