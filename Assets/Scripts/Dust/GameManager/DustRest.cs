@@ -1,13 +1,21 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class DustRest : MonoBehaviour
+public class DustRest : MonoBehaviour, GameOverHandlar
 {
     [SerializeField]
     private int dustRest;
 
     [SerializeField]
     private GameManager manager;
+
+    public bool isLock = false;
+
+    public int Rest
+    {
+        get {return dustRest; }
+    }
 
 	// Use this for initialization
 	void Start ()
@@ -23,6 +31,10 @@ public class DustRest : MonoBehaviour
 
     public void Sub()
     {
+        if(isLock)
+        {
+            return;
+        }
         dustRest--;
         CheckRest();
     }
@@ -33,5 +45,10 @@ public class DustRest : MonoBehaviour
         {
             manager.Clear();
         }
+    }
+
+    public void OnGameOver()
+    {
+        isLock = true;
     }
 }

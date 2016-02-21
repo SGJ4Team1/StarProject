@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
-        Send<GameStartHandlar>((obj) => {(obj).OnGameStart(); });
+        Send<GameStartHandlar>((obj) => {obj.OnGameStart(); });
     }
 	
 	// Update is called once per frame
@@ -26,15 +26,12 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Send<GameOverHandlar>((obj) => {(obj).OnGameOver(); });
-        Debug.Log("GameOver");
+        Send<GameOverHandlar> ((obj) => {obj.OnGameOver();  });
     }
 
     public void Clear()
     {
-        Send<GameClearHandlar>((obj) => {(obj).OnGameClear(); });
-        Debug.Log("Clear");
-        //シーンチェンジ
+        Send<GameClearHandlar>((obj) => {obj.OnGameClear(); });
     }
 
     void Send <T>(SendFunc<T> sendFunc) where T : IEventSystemHandler

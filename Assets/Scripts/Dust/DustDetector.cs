@@ -113,7 +113,7 @@ public class DustDetector : MonoBehaviour
         while(true)
         {
             rig.WakeUp();
-            if(Input.GetMouseButtonUp(0) && rig.IsTouching(col))
+            if(!Input.GetMouseButton(0) && rig.IsTouching(col))
             {
                 OnOverlapDust(col.gameObject);
             }
