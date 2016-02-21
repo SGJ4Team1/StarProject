@@ -42,7 +42,7 @@ public class PointerController : MonoBehaviour
             position.z = 10.0f;
             position = Camera.main.ScreenToWorldPoint(position);
 
-            tapObject.transform.position = position;
+            tapObject.transform.position = position + new Vector3(0, 0.5f, 0);
         }
 	}
 }
