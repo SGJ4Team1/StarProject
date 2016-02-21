@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class GameTimer : MonoBehaviour
+public class GameTimer : MonoBehaviour, GameClearHandlar
 {
     [SerializeField]
     private GameManager gameManager;
@@ -53,5 +54,10 @@ public class GameTimer : MonoBehaviour
     public void SubTime(float sub)
     {
         time -= sub;
+    }
+
+    public void OnGameClear()
+    {
+        StopTimer();
     }
 }
