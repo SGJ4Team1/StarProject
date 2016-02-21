@@ -74,14 +74,14 @@ public class DustDetector : MonoBehaviour
         {
             Debug.Log("正解");
             Success();
+            Destroy(dust);
+            dust = null;
         }
         else
         {
             Debug.Log("不正解");
+            dust.GetComponent<Dust>().ReRandomPut();
         }
-        
-        Destroy(dust);
-        dust = null;
     }
 
     IEnumerator StopDelay()

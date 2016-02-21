@@ -17,11 +17,7 @@ public class PointerController : MonoBehaviour
         //タップされているか判断
 	    if(Input.GetMouseButtonDown(0))
         {
-            Vector3 point = Input.mousePosition;
-            point.z = 10;
-
-            Ray ray = Camera.main.ScreenPointToRay(point);
-
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hitInfo = Physics2D.Raycast(ray.origin, ray.direction);
 
             //ゴミをタップしたか
@@ -43,7 +39,7 @@ public class PointerController : MonoBehaviour
         {
             //
             Vector3 position = Input.mousePosition;
-            position.z = 10;
+            position.z = 10.0f;
             position = Camera.main.ScreenToWorldPoint(position);
 
             tapObject.transform.position = position;

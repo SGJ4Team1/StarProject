@@ -11,6 +11,9 @@ GameObject:
   - 114: {fileID: 11439508}
   - 114: {fileID: 11403934}
   - 114: {fileID: 11421520}
+  - 114: {fileID: 11478962}
+  - 114: {fileID: 11442780}
+  - 114: {fileID: 11484758}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -42,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 11439508}
-  time: 10
+  time: 30
 --- !u!114 &11421520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -54,8 +57,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 713d4881b2880674cb6c26927cc825d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dustRest: 1
+  dustRest: 20
   manager: {fileID: 11439508}
+  isLock: 0
 --- !u!114 &11439508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -67,6 +71,61 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea1891c883b3bcf4aab0af36e7dd9429, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11442780
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b2b54bb85d36b48ab95861f4165d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DustParent: {fileID: 0}
+  createField:
+    serializedVersion: 2
+    x: -2.5
+    y: -1.5
+    width: 5
+    height: 4
+  createObject:
+  - {fileID: 115320, guid: aa8d3854ccc079e4db0a2c04e6be2919, type: 2}
+  - {fileID: 155546, guid: 4982b8537fbf4bf468d7f998495d8169, type: 2}
+  - {fileID: 186204, guid: 7ae37bfc54e21ea4a888dacfe6586ad7, type: 2}
+  - {fileID: 104140, guid: dcfae8abd5112b74292473340e79bf63, type: 2}
+  - {fileID: 119878, guid: 67dd1463b56aa394aad33cb41824ec01, type: 2}
+  - {fileID: 195570, guid: 4b5cbed0006bfcb429eacc7c84899ad3, type: 2}
+  - {fileID: 178868, guid: ffcc0a9a6fd9bb2469c3d54ce19e19e9, type: 2}
+  - {fileID: 142700, guid: abb9236e567092e47b31b9e71f6d5a4e, type: 2}
+--- !u!114 &11478962
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b2ac72a9f7b4c4f9fb738155a4a1b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clearName: 
+  endingSceneName: Ending
+  gameOverSceneName: GameOver
+  endStage: 5
+  reader: {fileID: 11484758}
+--- !u!114 &11484758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8d5cb9d3c83fb45a36026a26a54f8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

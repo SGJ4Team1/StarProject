@@ -4,6 +4,9 @@ using System.Collections.Generic;
 public class DustCreator : MonoBehaviour, GameStartHandlar
 {
     [SerializeField]
+    GameObject DustParent;
+
+    [SerializeField]
     Rect createField;
 
     [SerializeField]
@@ -26,9 +29,7 @@ public class DustCreator : MonoBehaviour, GameStartHandlar
         //ランダム生成
         for(int i = 0; i < 20; i++)
         {
-            Vector2 randomPosition = 
-                new Vector2(Random.Range(createField.xMin, createField.xMax), 
-                            Random.Range(createField.yMin, createField.yMax));
+            Vector2 randomPosition = RandomPosition();
 
             int createNum = Random.Range(0, createObject.Count);
 
@@ -37,8 +38,17 @@ public class DustCreator : MonoBehaviour, GameStartHandlar
                                          Quaternion.identity) as GameObject;
 
             obj.GetComponent<SpriteRenderer>().sortingOrder = i + 10;
+
+            obj.transform.parent = DustParent.transform;
         }
     }
+
+    public Vector2 RandomPosition()
+    {
+        return new Vector2(Random.Range(createField.xMin, createField.xMax), 
+                           Random.Range(createField.yMin, createField.yMax));
+    }
+
 
     void OnDrawGizmosSelected()
     {

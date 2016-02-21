@@ -1,15 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System;
 
 [RequireComponent(typeof(GameManager), typeof(StageReader))]
-public class GameSceneChanger : MonoBehaviour, GameClearHandlar
+public class GameSceneChanger : MonoBehaviour, GameClearHandlar, GameOverHandlar
 {
     [SerializeField]
-    string sceneName;
+    string clearName;
 
     [SerializeField]
     string endingSceneName;
+
+    [SerializeField]
+    string gameOverSceneName;
 
     [SerializeField]
     int endStage;
@@ -36,6 +40,11 @@ public class GameSceneChanger : MonoBehaviour, GameClearHandlar
             SceneManager.LoadScene(endingSceneName);
         }
 
-        SceneManager.LoadScene(sceneName);
+        SceneManager.LoadScene(clearName);
+    }
+
+    public void OnGameOver()
+    {
+        SceneManager.LoadScene(gameOverSceneName, LoadSceneMode.Additive);
     }
 }

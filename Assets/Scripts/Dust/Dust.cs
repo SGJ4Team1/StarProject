@@ -47,4 +47,9 @@ public class Dust : MonoBehaviour
     {
         get { return parameter; }
     }
+
+    public void ReRandomPut()
+    {
+        transform.parent.GetComponent<DustSender>().RandomPosition(gameObject);
+    }
 }
