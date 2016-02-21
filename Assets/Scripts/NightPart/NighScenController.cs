@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class NighSceneManager : MonoBehaviour {
+public class NighScenController : MonoBehaviour
+{
 
     [Header("シーン先名")]
     public string SceneName;
