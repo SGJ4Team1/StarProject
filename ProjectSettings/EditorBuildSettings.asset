@@ -8,6 +8,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameMain.unity
   - enabled: 1
-    path: Assets/Scenes/TestScenes/TestNightPart.unity
-  - enabled: 1
     path: Assets/Scenes/GameOver.unity
+  - enabled: 1
+    path: Assets/Scenes/NightPart.unity
+  - enabled: 1
+    path: Assets/Scenes/Title.unity
