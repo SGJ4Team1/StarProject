@@ -3,6 +3,9 @@ using System.Collections;
 
 public class DustDetector : MonoBehaviour
 {
+    [SerializeField]
+    private DustRest dustRect;
+
     [Header("ゴミを判定基準")]
 
     [SerializeField, Tooltip("検知するゴミの情報")]
@@ -81,9 +84,15 @@ public class DustDetector : MonoBehaviour
         dust = null;
     }
 
+    IEnumerator StopDelay()
+    {
+        yield return null;
+        StopAllCoroutines();
+    }
+
     void Success()
     {
-        
+        dustRect.Sub();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -96,13 +105,14 @@ public class DustDetector : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
-        StopAllCoroutines();
+        StartCoroutine(StopDelay());
     }
 
     IEnumerator CheckMouse(Collider2D col)
     {
         while(true)
         {
+            rig.WakeUp();
             if(Input.GetMouseButtonUp(0) && rig.IsTouching(col))
             {
                 OnOverlapDust(col.gameObject);
