@@ -17,6 +17,6 @@ public class ShowDustRest : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-	    text.text = "Rest : " + dustRest.Rest.ToString();
+	    text.text = "のこり:" + dustRest.Rest.ToString();
 	}
 }

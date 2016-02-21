@@ -1,23 +1,25 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
 
-public class ShowTimer : MonoBehaviour
+public class DustSender : MonoBehaviour
 {
     [SerializeField]
-    GameTimer timer;
-
-    Text text;
+    DustCreator creator;
 
 	// Use this for initialization
 	void Start ()
     {
-	    text = GetComponent<Text>();
+	    
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-	    text.text = "じかん:" + ((int)timer.time).ToString();
+	
 	}
+
+    public void RandomPosition(GameObject dust)
+    {
+        dust.transform.position = creator.RandomPosition();
+    }
 }
