@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class NighSceneManager : MonoBehaviour {
@@ -8,6 +9,7 @@ public class NighSceneManager : MonoBehaviour {
 
     public void SceneButton()
     {
-        Application.LoadLevel(SceneName);
+        SceneManager.LoadScene(SceneName);
+        //Application.LoadLevel(SceneName);
     }
 }
