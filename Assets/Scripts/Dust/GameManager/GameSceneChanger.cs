@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System;
 
@@ -20,6 +21,9 @@ public class GameSceneChanger : MonoBehaviour, GameClearHandlar, GameOverHandlar
 
     [SerializeField]
     StageReader reader;
+
+    [SerializeField]
+    List<GameObject> gameoverIgnoreObject;
 
 	// Use this for initialization
 	void Start ()
@@ -45,6 +49,10 @@ public class GameSceneChanger : MonoBehaviour, GameClearHandlar, GameOverHandlar
 
     public void OnGameOver()
     {
+        foreach(GameObject ignoreObject in gameoverIgnoreObject)
+        {
+            ignoreObject.SetActive(false);
+        }
         SceneManager.LoadScene(gameOverSceneName, LoadSceneMode.Additive);
     }
 }
