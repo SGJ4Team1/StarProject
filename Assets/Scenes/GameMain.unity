@@ -971,7 +971,7 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1172, y: 92.5}
+  m_AnchoredPosition: {x: -12, y: 92.5}
   m_SizeDelta: {x: 790, y: 185}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &694918181
@@ -1019,7 +1019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.15
-  time: 20
+  width: 0.002
 --- !u!114 &978379378 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11421520, guid: 5647780e69d89024c9f617ef44c65f45,
@@ -1095,7 +1095,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1006.5, y: 302}
+  m_AnchoredPosition: {x: 135, y: 302}
   m_SizeDelta: {x: 1217, y: 327}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1002965624
@@ -1142,8 +1142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0ce68e921fe8141a3de85d421fdf97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -0.1
-  time: 31.43
+  speed: -0.3
+  width: 0.005
 --- !u!1001 &1056306676
 Prefab:
   m_ObjectHideFlags: 0
@@ -1330,7 +1330,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -816, y: 206}
+  m_AnchoredPosition: {x: -134, y: 206}
   m_SizeDelta: {x: 769, y: 243}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1183370840
@@ -1378,7 +1378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.3
-  time: 8.7
+  width: 0.008
 --- !u!1 &1435443633
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,7 +1862,7 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 738, y: -77.99999}
+  m_AnchoredPosition: {x: 110, y: -77.99999}
   m_SizeDelta: {x: 680, y: 156}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1787509848
@@ -1909,8 +1909,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e0ce68e921fe8141a3de85d421fdf97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.87
-  time: -2.48
+  speed: 1
+  width: 0.02
 --- !u!1 &1826052962
 GameObject:
   m_ObjectHideFlags: 0

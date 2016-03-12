@@ -7,9 +7,9 @@ public class BlackSmoke : MonoBehaviour
     float speed;
 
     [SerializeField]
-    float time;
+    float width;
 
-    private Vector3 startPosition;
+    float radius;
 
     private RectTransform rectTrans;
 
@@ -17,26 +17,13 @@ public class BlackSmoke : MonoBehaviour
 	void Start ()
     {
         rectTrans = GetComponent<RectTransform>();
-        startPosition = rectTrans.position;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-	    rectTrans.position += new Vector3(speed, 0);
+        radius += speed;
+        radius  = (radius + 360) % 360;
+	    rectTrans.position += new Vector3(Mathf.Sin(Mathf.Deg2Rad * radius)*width, 0);
 	}
-
-    IEnumerator Timer()
-    {
-        while(true)
-        {
-            yield return new WaitForSeconds(time);
-            rectTrans.position = startPosition;
-        }
-    }
-
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.DrawLine(transform.position, transform.position + new Vector3(speed, 0) * 60 * time);
-    }
 }
