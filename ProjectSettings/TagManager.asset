@@ -14,7 +14,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Fade
   - 
   - 
   - 
@@ -41,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: TitleBase
+    uniqueID: 2177136225
+    locked: 0
+  - name: TitleSub
+    uniqueID: 311258385
+    locked: 0
+  - name: Caption
+    uniqueID: 2085088663
+    locked: 0
+  - name: Fade
+    uniqueID: 4273910407
     locked: 0

@@ -12,7 +12,6 @@ public class TitleSoundManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log("se start");
         sources = gameObject.GetComponents<AudioSource>();
         sources[0].clip = bgm;
         sources[0].Play();
